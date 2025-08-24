@@ -5,16 +5,17 @@ import gdown
 import os
 from dict import display_names, labelenc_map, ohe_map, bin_map
 from column import NUMERIK, KATEGORIK, MULTIKELAS_OHE, BINER_LAIN, LABELENC_BINER_3
+
 MODEL_PATH = "model/best_stacking_res.pkl"
 os.makedirs("model", exist_ok=True)
 
 if not os.path.exists(MODEL_PATH):
-    url = "https://drive.google.com/file/d/1UKAvBLzYRC7y6BpWQiIcbPJPsRIw-nbI/view?usp=drive_link" 
+    url = "https://drive.google.com/uc?export=download&id=1UKAvBLzYRC7y6BpWQiIcbPJPsRIw-nbI"
     gdown.download(url, MODEL_PATH, quiet=False)
 
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
-# model = pickle.load(open("https://drive.google.com/file/d/1UKAvBLzYRC7y6BpWQiIcbPJPsRIw-nbI/view?usp=sharing", "rb"))
+
 preprocessor = pickle.load(open("model/preprocessor.pkl", "rb"))
 
 st.set_page_config(
