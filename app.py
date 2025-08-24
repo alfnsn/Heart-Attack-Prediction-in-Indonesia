@@ -8,12 +8,10 @@ from column import NUMERIK, KATEGORIK, MULTIKELAS_OHE, BINER_LAIN, LABELENC_BINE
 MODEL_PATH = "model/best_stacking_res.pkl"
 os.makedirs("model", exist_ok=True)
 
-# Download model jika belum ada
 if not os.path.exists(MODEL_PATH):
-    url = "https://drive.google.com/uc?id=1UKAvBLzYRC7y6BpWQiIcbPJPsRIw-nbI"  # ganti dengan FILE_ID kamu
+    url = "https://drive.google.com/file/d/1UKAvBLzYRC7y6BpWQiIcbPJPsRIw-nbI/view?usp=drive_link" 
     gdown.download(url, MODEL_PATH, quiet=False)
 
-# Load model
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
 # model = pickle.load(open("https://drive.google.com/file/d/1UKAvBLzYRC7y6BpWQiIcbPJPsRIw-nbI/view?usp=sharing", "rb"))
